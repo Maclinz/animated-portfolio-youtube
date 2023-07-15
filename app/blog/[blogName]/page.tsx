@@ -16,13 +16,13 @@ function page({ params: { blogName } }: Params) {
       blogName
   );
 
-  const { title, introduction, image, outro, list, featuredPortfolio } = blog;
-
-  const { image: introImage } = featuredPortfolio;
-
   if (!blog) {
     return <div>Loading...</div>;
   }
+
+  const { title, introduction, image, outro, list, featuredPortfolio } = blog;
+
+  const introImage = featuredPortfolio?.image;
 
   return (
     <section className="blog-page">
@@ -45,7 +45,7 @@ function page({ params: { blogName } }: Params) {
         </div>
 
         <div className="blog-page__header__image">
-          <Image src={image} alt={title} />
+          {image && <Image src={image} alt="header image" />}
         </div>
       </div>
 
