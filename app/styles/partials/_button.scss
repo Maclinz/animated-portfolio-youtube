@@ -1,0 +1,26 @@
+@use "./vars" as *;
+
+.button {
+  outline: none;
+  border: none;
+  font-family: inherit;
+
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  cursor: pointer;
+
+  &--red {
+    color: $color--red;
+
+    &:hover {
+      color: #6366f1;
+    }
+  }
+
+  &--white {
+    color: $color--White;
+  }
+
+  &--purple {
+    color: $color--purple;
+  }
+}

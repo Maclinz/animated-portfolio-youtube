@@ -1,95 +1,71 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import Banner from "./Components/Banners/Banner";
+import PortfolioItem from "./Components/PortfolioItem/PortfolioItem";
+import Portfolios from "./Components/Portfolios";
+import ContactBanner from "./Components/Banners/ContactBanner";
+import { portfolios } from "./utils/portfolios";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  // mini portfolio animation
+  const portfolioVariants = {
+    hidden: {
+      opacity: 0,
+      scaleY: 0.3,
+      filter: "blur(10px)",
+      x: -300,
+    },
+    visible: {
+      opacity: 1,
+      scaleY: 1,
+      filter: "blur(0px)",
+      x: 0,
+
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        delay: 0.5,
+      },
+    },
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+    <main className="u-pad-2">
+      <Portfolios />
+      <Banner
+        color="white"
+        text="Interested in working with me on your next project? Send me an email or schedule a meeting."
+        button
+      />
+      <motion.div
+        className="mini-portfolios"
+        variants={portfolioVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {portfolios.slice(-4).map((portfolio) => {
+          return (
+            <PortfolioItem
+              key={portfolio.id}
+              name={portfolio.name}
+              image={portfolio.image}
+              url={portfolio.url}
+              categories={portfolio.categories}
             />
-          </a>
-        </div>
-      </div>
+          );
+        })}
+      </motion.div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Banner
+        background="white"
+        shadow
+        color="#6366F1"
+        text="I am a tech-savvy individual leading a design and web development studio dedicated to providing comprehensive digital solutions."
+      />
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <ContactBanner />
     </main>
-  )
+  );
 }
