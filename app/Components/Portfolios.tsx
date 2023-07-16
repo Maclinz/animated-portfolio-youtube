@@ -9,6 +9,8 @@ import { gridVariants } from "../utils/animation";
 function Portfolios() {
   const router = useRouter();
 
+  const MemoizedPortfolioItem = React.memo(PortfolioItem);
+
   return (
     <motion.div
       className="portfolios"
@@ -18,7 +20,7 @@ function Portfolios() {
     >
       {portfolios.map((portfolio) => {
         return (
-          <PortfolioItem
+          <MemoizedPortfolioItem
             key={portfolio.id}
             name={portfolio.name}
             image={portfolio.image}
