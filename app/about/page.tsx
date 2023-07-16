@@ -72,7 +72,7 @@ function AboutPage() {
           variants={titleVariants}
           initial="offscreen"
           whileInView="onscreen"
-          viewport={{ once: true, amount: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <h1 className={`about-header__title ${abril.className}`}>
             The Code Dealer

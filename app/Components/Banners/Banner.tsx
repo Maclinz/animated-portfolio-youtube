@@ -3,7 +3,7 @@ import React from "react";
 import Button from "../Button/Button";
 import { bannerVariants } from "@/app/utils/animation";
 import { motion } from "framer-motion";
-import { useGlobalContext } from "@/app/layout";
+import { useGlobalContext } from "@/app/utils/globalContext";
 
 interface Props {
   text: string;

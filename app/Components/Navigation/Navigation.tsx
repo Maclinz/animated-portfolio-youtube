@@ -8,7 +8,7 @@ import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { navVariants } from "@/app/utils/animation";
-import { useGlobalContext } from "@/app/layout";
+import { useGlobalContext } from "@/app/utils/globalContext";
 
 function Navigation() {
   const [activeNav, setActiveNav] = React.useState(false);

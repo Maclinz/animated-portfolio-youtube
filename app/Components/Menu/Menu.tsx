@@ -2,7 +2,7 @@
 import React from "react";
 import Button from "../Button/Button";
 import { motion } from "framer-motion";
-import { useGlobalContext } from "@/app/layout";
+import { useGlobalContext } from "@/app/utils/globalContext";
 
 function Menu() {
   const context = useGlobalContext();
