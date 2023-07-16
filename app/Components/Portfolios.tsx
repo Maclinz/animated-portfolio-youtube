@@ -9,6 +9,7 @@ import { gridVariants } from "../utils/animation";
 function Portfolios() {
   const router = useRouter();
 
+  // memoize portfolio item to prevent re-render
   const MemoizedPortfolioItem = React.memo(PortfolioItem);
 
   return (

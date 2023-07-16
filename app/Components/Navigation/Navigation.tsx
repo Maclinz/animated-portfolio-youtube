@@ -11,7 +11,6 @@ import { navVariants } from "@/app/utils/animation";
 import { useGlobalContext } from "@/app/utils/globalContext";
 
 function Navigation() {
-  const [activeNav, setActiveNav] = React.useState(false);
   const [activeMenu, setActiveMenu] = React.useState(0);
 
   const context = useGlobalContext();

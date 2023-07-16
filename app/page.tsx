@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Banner from "./Components/Banners/Banner";
 import PortfolioItem from "./Components/PortfolioItem/PortfolioItem";
 import Portfolios from "./Components/Portfolios";
@@ -33,6 +34,8 @@ export default function Home() {
     },
   };
 
+  const MemoizedPortfolioItem = React.memo(PortfolioItem);
+
   return (
     <main className="u-pad-2">
       <Portfolios />
@@ -50,7 +53,7 @@ export default function Home() {
       >
         {portfolios.slice(-4).map((portfolio) => {
           return (
-            <PortfolioItem
+            <MemoizedPortfolioItem
               key={portfolio.id}
               name={portfolio.name}
               image={portfolio.image}

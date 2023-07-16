@@ -120,3 +120,49 @@ export const titleVariants: Variants = {
     },
   },
 };
+
+export const titleVariants2: Variants = {
+  offscreen: {
+    y: 300,
+    opacity: 0,
+    scaleY: 0.5,
+  },
+  onscreen: {
+    y: 0,
+    opacity: 1,
+    scaleY: 1,
+    transition: {
+      type: "spring",
+      bounce: 0.45,
+      duration: 0.8,
+      delay: 0.2,
+    },
+  },
+};
+
+export const headerImgVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.3, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 200,
+      damping: 20,
+      delay: 0.5,
+    },
+  },
+};
+
+export const overlayVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+
+    // filter: "blur(0px)",
+    transition: {
+      type: "ease",
+    },
+  },
+};

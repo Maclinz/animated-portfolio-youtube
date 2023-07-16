@@ -1,10 +1,14 @@
 "use client";
-
 import { portfolios } from "@/app/utils/portfolios";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-
+import { motion } from "framer-motion";
+import {
+  headerImgVariants,
+  overlayVariants,
+  titleVariants2,
+} from "@/app/utils/animation";
 interface Params {
   params: {
     portfolioName: string;
@@ -32,9 +36,25 @@ function page({ params }: Params) {
   return (
     <section className="project">
       <div className="project__header">
-        <img className="bg-image" src={image?.src} alt="" />
-        <div className="overlay"></div>
-        <div className="banner">
+        <motion.img
+          className="bg-image"
+          src={image?.src}
+          variants={headerImgVariants}
+          initial="hidden"
+          animate="visible"
+        />
+        <motion.div
+          className="overlay"
+          variants={overlayVariants}
+          initial="hidden"
+          animate="visible"
+        ></motion.div>
+        <motion.div
+          className="banner"
+          variants={titleVariants2}
+          initial="offscreen"
+          animate="onscreen"
+        >
           <div className="banner__header">
             <h1 className="banner__title">{name}</h1>
             <div className="banner__categories">
@@ -48,7 +68,7 @@ function page({ params }: Params) {
             </div>
           </div>
           <p className="banner__text">{description}</p>
-        </div>
+        </motion.div>
       </div>
       <div className="project__content">
         <div className="project__content__intro">
