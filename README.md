@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Live Link
 
+https://my-portfolio-sigma-sepia.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
