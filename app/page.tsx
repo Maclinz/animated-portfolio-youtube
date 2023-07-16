@@ -5,8 +5,11 @@ import Portfolios from "./Components/Portfolios";
 import ContactBanner from "./Components/Banners/ContactBanner";
 import { portfolios } from "./utils/portfolios";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   // mini portfolio animation
   const portfolioVariants = {
     hidden: {
@@ -53,6 +56,7 @@ export default function Home() {
               image={portfolio.image}
               url={portfolio.url}
               categories={portfolio.categories}
+              onClick={() => router.push(`/portfolio/${portfolio.url}`)}
             />
           );
         })}
